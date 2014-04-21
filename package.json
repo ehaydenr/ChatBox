@@ -1,0 +1,12 @@
+{
+	"name" : "SigSoft_Demo",
+	"description" : "Node.JS demo",
+	"scripts" : {
+		"start" : "node app.js"
+	},
+	"devDependencies" : {
+		"express" : "3.x",
+		"jade" : "*",
+		"socket.io" : "*"
+	}
+}
