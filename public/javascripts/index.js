@@ -5,7 +5,7 @@ $(document).ready(function (){
 	username = prompt("Please enter your name");
 
 	socket.on('incoming_message', function (message) {
-		$('.output').append(message.username + ": " + message.content + "<br />");
+        $('.output').append($.parseHTML(message.username + ": " + message.content + "<br />"));
 		$('.output').scrollTop($('.output')[0].scrollHeight);
 	});
 
