@@ -10,8 +10,17 @@ $(document).ready(function (){
 	// Define callback for when a message is sent over websockets
 	socket.on('incoming_message', function (message) {
 
-		// Append the output window with the message. Prevent javascript injection
-    	$('.output').append($.parseHTML('<strong>'+message.username+'</strong>' + ": " + message.content + "<br />"));
+		// Append the output window with the message.
+
+		// Javascript injection prevention
+		var username = document.createElement('strong');
+		username.appendChild(document.createTextNode(message.username));
+		var content = document.createTextNode(': ' + message.content);
+		var br = document.createElement('br');
+		// Append to console
+    	$('.output').append(username);
+    	$('.output').append(content);
+    	$('.output').append(br);
 
     	// Scroll the div to the most recently appended message
 		$('.output').scrollTop($('.output')[0].scrollHeight);
